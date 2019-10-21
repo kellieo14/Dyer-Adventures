@@ -1,0 +1,545 @@
+.gallery-container h1 {
+    text-align: center;
+    color: #94d5d1;
+    text-transform: uppercase;
+    font-family: 'Emblema One', cursive;
+    padding: 20px 0 20px 0;
+    font-size: 3.5em;
+    text-shadow:
+        -1px -1px 0 #f8f9fa,
+        1px -1px 0 #f8f9fa,
+        -1px 1px 0 #f8f9fa,
+        1px 1px 0 #f8f9fa;
+}
+
+.gallery-container {
+    overflow-y: auto;
+    height: 100vh;
+    padding-bottom: 50px;
+    color: white; 
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+/************** GALLERY GRID ****************/
+
+.item-grid {
+    max-width: 900px;
+    margin: 20px auto;
+    margin-bottom: 50px;
+    position: relative;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    overflow: hidden; 
+}
+
+.item {
+    position: relative;
+    float: left;
+    width: 33.33333333333%;
+    padding-bottom: 33.33333333333%;
+    height: 300px;
+    background-color: #f8f9fa;
+    overflow: hidden; 
+    object-fit: scale-down;
+}
+
+.item:after {
+    content: '';
+    display: block;
+    background-color: inherit;
+    opacity: 0.9;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(2) translateX(-75%) translateY(-75%) translateZ(0) rotate(-28deg);
+    transition: transform 3s cubic-bezier(0.23, 1, 0.32, 1); 
+}
+
+.item:hover:after {
+    transform: scale(2) translateX(0%) translateY(0%) translateZ(0) rotate(-28deg); 
+}
+
+.item:hover .item-image {
+    transform: scale(1.2) translateZ(0); 
+}
+
+.item:hover .item-text {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+.item-image {
+    height: 300px;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 750ms cubic-bezier(0.23, 1, 0.32, 1); 
+}
+
+.item-image::before {
+    content: "";
+    display: block;
+    padding-top: 75%;
+    overflow: hidden; 
+}
+
+.item-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    line-height: 0; 
+}
+
+.item-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    text-align: center;
+    z-index: 1;
+    color: #343a40;
+    transition: opacity 500ms cubic-bezier(0.23, 1, 0.32, 1), transform 500ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition-delay: 300ms;
+    transform: translateY(-20%); 
+}
+
+.item-text-2 {
+    font-style: 14px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    font-size: 1.5vw;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    color: #343a40;
+}
+
+.item-text-2:hover {
+    text-decoration: none;
+    color: #94d5d1;
+}
+
+.item-text-wrapper {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+.item-text-dek {
+    text-transform: uppercase;
+    font-size: 2vw;
+    opacity: 0.7;
+    margin: 0; 
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.item-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -9999px; 
+}
+
+.edit-delete-gallery {
+    margin: 21px auto;
+    font-size: 1.25vw;
+    color: #FA9E71;
+    opacity: .7;
+    width: 80%;
+}
+
+.edit-gallery-div button  {
+    color: #FA9E71;
+    width: inherit;
+    background-color: #94d5d1;
+    border: none;
+    line-height: 30px;
+    padding: 0;
+    letter-spacing: 1.5px;
+    margin-top: 2px;
+}
+
+.edit-gallery-div button:hover  {
+    color: #f8f9fa;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.edit-gallery-div button:focus {
+    outline: none;
+}
+
+.delete-gallery-div button{
+    color: #94d5d1;
+    width: inherit;
+    background-color: #FA9E71;
+    border: none;
+    line-height: 30px;
+    padding: 0;
+    letter-spacing: 1.5px;
+    margin-top: 2px;
+}
+
+.delete-gallery-div button:hover {
+    color: #f8f9fa;
+    cursor: pointer;
+}
+
+.delete-gallery-div button:focus {
+    outline: none;
+}
+
+.delete-gallery-modal {
+    color: #f8f9fa;
+
+}
+
+.delete-gallery-modal .modal-body {
+    text-align: center;
+    padding-bottom: 60px;
+    background-color: #343a40;
+    border-bottom: 4px solid #94d5d1;
+    border-left: 4px solid #94d5d1;
+    border-right: 4px solid #94d5d1;
+}
+
+.delete-gallery-button-row {
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.delete-gallery-button-row button {
+    padding: 5px;
+    width: 100px;
+}
+
+.delete-gallery-button-row button:hover {
+    cursor: pointer;
+}
+
+.delete-gallery-button-row button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/************** MODAL ****************/
+.delete-gallery-modal .modal-header {
+    border-bottom: none;
+    margin: 0;
+    background-color: #343a40;
+    border-top: 4px solid #94d5d1;
+    border-left: 4px solid #94d5d1;
+    border-right: 4px solid #94d5d1;
+}
+
+.delete-gallery-modal .modal-header button:focus {
+    outline: none;
+}
+
+.delete-gallery-modal .modal-header button {
+    color: #f8f9fa;
+    opacity: 1;
+}
+
+.close:not(:disabled):not(.disabled):hover {
+    color: #f8f9fa;
+}
+
+.yes-delete-button {
+    color: #FA9E71;
+    background-color: #94d5d1;
+    border: none;
+    letter-spacing: 1.5px;
+}
+
+.no-delete-button {
+    background-color: #FA9E71;
+    color: #94d5d1;
+    border: none;
+    letter-spacing: 1.5px;
+}
+
+.no-delete-button:hover, .yes-delete-button:hover {
+    color: #f8f9fa;
+}
+
+.modal-body p {
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 1275px) {
+    .item-text-dek {
+        font-size: 1.25vw;
+    }
+
+    .item-text-2 {
+        font-size: .90vw;
+    }
+
+    .delete-gallery-div button{
+        font-size: .85vw;
+    }
+    
+    .edit-gallery-div button{
+        font-size: .85vw;
+    }
+}
+
+/************** GALLERY SHOW ****************/
+
+.gallery-thumbnail-container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.view-album-title-div {
+    background-color: #FA9E71;
+    text-align: center;
+    padding: 25px;
+    width: 278px;
+    border: solid 4px #f8f9fa;
+}
+
+.view-album-title-div .gallery-title {
+    border: 2px dashed #f8f9fa;
+    border-radius: 50%;
+    height: 220px;
+    width: 220px;
+    max-width: 220px;
+    background-color: #94d5d1;
+    display: table-cell;
+    vertical-align: middle;
+    box-shadow: 0px 0px 0px 8px #94d5d1;
+    border: solid 6px #f8f9fa;
+}
+
+.gallery-description-div {
+    text-align: center;
+    background-color: #94d5d1;
+    max-width: 278px;
+    min-width: 278px;
+    height: 278px;
+    border: 4px solid #f8f9fa;
+    display: table;
+}
+
+.gallery-description {
+    text-align: center;
+    padding: 5px;
+    font-size: 1.5em;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.gallery-description h6{
+    text-align: center;
+    padding: 5px;
+    font-size: 1em;
+    font-weight: 200;
+}
+
+.view-album-title-div .gallery-title p{
+    color: #f8f9fa;
+}
+
+.gallery-title h1 {
+    font-size: 2.25em;
+    padding:0;
+}
+
+.view-album-title-container {
+    float: right;
+}
+
+.gallery-view-album .back-button-div {
+    margin-left: -35px;
+    margin-top: -10px;
+    font-size: 20px;
+}
+
+.gallery-view-album .back-button:hover {
+    color: #FA9E71;
+}
+
+.gallery-view-album .back-button {
+    color: #f8f9fa;
+}
+.arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    border-left: 40px solid #94d5d1;
+}
+
+@media (max-width: 767px) {
+    .gallery-description-div {
+        margin: 0 auto;
+    }
+
+    .view-album-title-div {
+        margin: 0 auto;
+    }
+
+    .view-album-title-container {
+        float: none;
+    }
+}
+
+#gallery {
+    padding-top: 40px;
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 991px) {
+    #gallery {
+        padding: 60px 30px 0 30px;
+   }
+}
+
+.img-wrapper {
+    position: relative;
+    margin-top: 15px;
+    height: 300px;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.img-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.img-overlay i {
+    color: #fff;
+    font-size: 3em;
+}
+
+.img-overlay:hover {
+    cursor: pointer;
+}
+
+#overlay {
+    background: rgba(0, 0, 0, 1);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 35px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#overlay img {
+    margin: 0;
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+    padding: 5%;
+}
+
+@media screen and (min-width: 768px) {
+    #overlay img {
+        width: 60%;
+   }
+}
+
+@media screen and (min-width: 1200px) {
+    #overlay img {
+        width: 50%;
+   }
+}
+
+#nextButton {
+    transition: opacity 0.8s;
+}
+
+#nextButton:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    #nextButton {
+        min-width: 80px;
+        padding: 0;
+    }
+   #overlay img {
+        width: 72%;
+        padding: 2px;
+    }
+}
+
+#prevButton {
+    transition: opacity 0.8s;
+    text-align: right;
+}
+
+#prevButton:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    #prevButton {
+        min-width: 80px;
+        padding:0;
+   }
+}
+
+#exitButton {
+    color: #fff;
+    transition: opacity 0.8s;
+    position: absolute;
+    top: 5px;
+    right: -50px;
+    padding: 0;
+    min-width: 90px;
+}
+
+#exitButton:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    #exitButton {
+        max-width: 100px;
+        right: -30px;
+   }
+}

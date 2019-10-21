@@ -1,0 +1,112 @@
+
+.landing-div{
+    position: absolute;
+    width: 100%;
+    max-height: 100vh;
+    overflow: auto;
+}
+
+.nav-link {
+    text-transform: uppercase;
+}
+
+.landing-photo-1 {
+    background-image: url("../images/japan3.JPG");
+    height: 100vh;
+    background-size: cover;
+    overflow: none;
+    background-position: center;
+}
+
+.navbar {
+    background: transparent;
+}
+
+.container-fluid{
+    margin: 0;
+    padding: 0;
+}
+
+.landing-quote {
+    color: white;
+    display: flex;
+    height: 100vh;
+    background: rgba(52, 58, 64,0.3);
+}
+
+.title-div {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+    position: absolute;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+}
+
+@media (max-width: 1109px) {
+    .landing-quote h6 {
+        font-size: 3em;
+        font-family: 'Emblema One', cursive; 
+        text-align: left;
+    }
+
+    .quote-div {
+        position: absolute;
+        left: 20px;
+        top: 13%;
+        width: 30%;
+    }
+
+    .title-div h3 {
+        font-weight: 200;
+        font-size: 2.5em;
+    }
+
+    .title-div hr {
+        display: none;
+    }
+
+    .title-div {
+        right: -140;
+        margin-left: 10;
+        bottom: 25%;
+    }
+}
+
+@media (min-width: 1110px) {
+    .landing-quote h6 {
+        font-size: 5em;
+        font-family: 'Emblema One', cursive; 
+        text-align: left;
+    }
+
+    .quote-div {
+        position: absolute;
+        left: 30px;
+        top: 13%;
+        width: 33%;
+    }
+
+    .title-div h3 {
+        font-weight: 200;
+        font-size: 2.5em;
+    }
+
+    .title-div hr {
+        display: inline-flex;
+        background-color: white;
+        width: 25vh;
+        height: 2px;
+        margin-left: 10px;
+    }
+    
+    .title-div {
+        right: -225;
+        margin-left: 10;
+        bottom: 37%;
+    }
+} 

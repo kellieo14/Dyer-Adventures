@@ -1,0 +1,74 @@
+<% include ../partials/header %>
+<div class="container-fluid blog-show">
+    <div class="arrow-right">
+        <div class="back-button-div">
+            <a class="back-button" href="/blogs"><i class="fas fa-arrow-left"></i></a>
+        </div>
+    </div>
+    <div class="no-gutters">
+        <div class="blog-show-image-div">
+            <img class="img-fluid blog-show-image" src="<%= post.image %>">
+        </div>
+        <div class="show-title">
+            <h3><%= post.title %></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <div class="blog-body-container">
+                <h6><%= post.month + " " + post.day + ", " + post.year %></h6>
+                <hr />
+                <p class="post-description"><%= post.description %></p>
+            </div>
+        </div>
+        <div class="col-md-3 date-div">
+            <div class="date-style-div">
+                <h4><%= post.day %></h4>
+                <h6><%= post.month.slice(0, 3).toUpperCase()+ (" ") + post.year %></h6>
+            </div>
+            <hr />
+            <h6><i>Author:</i></h6>
+            <h6>Kellie Dyer</h6>
+        </div>
+    </div>
+    <!-- MODAL -->
+    <div class="modal delete-gallery-modal fade" id="blogDeleteModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete the '<%= post.title %>' post?</p>
+                    <div class="row delete-gallery-button-row">
+                        <div class="col-xs-6">
+                            <form action="/blogs/<%= post._id %>?_method=DELETE" method="POST">
+                                <button class="yes-delete-button">YES</button>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <button class="no-delete-button" data-dismiss="modal">NO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% if(currentUser) { %>
+    <nav class="navbar fixed-bottom navbar-light justify-content-center">
+        <button onClick="window.location.href='/blogs/<%=post._id%>/edit'" class="btn edit-delete edit-button"><i
+                class="fas fa-pencil-alt"></i>
+        </button>
+        <button data-toggle="modal" data-target="#blogDeleteModal" class="btn edit-delete remove-button"><i
+                class="fas fa-trash-alt"></i>
+        </button>
+    </nav>
+    <% } else { %>
+    <% } %>
+</div>
+<% include ../partials/footer %>

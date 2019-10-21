@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class="container-fluid blog-list-container">
+    <div class="blog-main-title">
+        <h3>BLOGS</h3>
+    </div>
+    <div class="container blog-index-div">
+        <div class="row">
+            <% posts.forEach(function(post){ %>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 blog-list-col">
+                <a class="blog-image-container" href="/blogs/<%= post._id %>">
+                    <img class="blog-image img-thumbnail" src="<%= post.image %>">
+                </a>
+                <div class="blog-list-overlay">
+                    <div class="blog-preview">
+                        <h2 class="post-title"><%= post.title %></h2>
+                        <h5 class="post-date"><%=post.month + " " + post.day + ", " + post.year %></h5>
+                        <p class="post-description"><%= post.description.substring(0, 115) %>...</p>
+                        <a class="read-article-button" href="/blogs/<%= post._id %>">READ POST <i
+                                class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

@@ -1,0 +1,19 @@
+<% include ./partials/header %>
+<div class="container-fluid register-form new-page-form">
+    <div class="arrow-right edit-back-arrow">
+        <div class="back-button-div">
+            <a class="back-button" href="/admin"><i class="fas fa-arrow-left"></i></a>
+        </div>
+    </div>
+    <h1 class="new-page-title">Register</h1>
+    <form class="new-form" action="/register" method="POST">
+        <input class="experience-input" type="text" name="username" placeholder="USERNAME">
+        <input class="experience-input" type="password" name="password" placeholder="PASSWORD">
+        <div class="row">
+            <div class="col-lg-12 submit-row">
+                <button class="btn create submit">REGISTER</button>
+            </div>
+        </div>
+    </form>
+</div>
+<% include ./partials/footer %>

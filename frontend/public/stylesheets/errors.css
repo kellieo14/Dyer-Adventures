@@ -1,0 +1,231 @@
+
+/************** CAT CSS ****************/
+.error-container {
+    background-color: #343a40;
+    height: calc(100vh - 40px);
+    margin-top: 40px;
+    color: white;
+    overflow: auto;
+}
+
+.image-text-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.image-text-container .column{
+    display: table-cell;
+    height: Calc(100vh - 40px);
+}
+
+.error-container img {
+    height: 45vw;
+    min-height: 550px;
+    max-height: 603px;
+}
+
+.error-image-container {
+    display: table-cell;
+    vertical-align: middle;
+    height: Calc(100vh - 40px);
+}
+
+.error-text-container {
+    display: cell;
+    vertical-align: middle;
+}
+
+.error-text-container p {
+    font-family: "Bungee Inline";
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 3.35em;
+    color: #FA9E71;
+    padding: 0 0 20px 10px;
+    text-align: left;
+    line-height: 5vw;
+    max-height: 603px;
+    text-shadow:
+        -1px -1px 0 #f8f9fa,
+        1px -1px 0 #f8f9fa,
+        -1px 1px 0 #f8f9fa,
+        1px 1px 0 #f8f9fa;
+}
+
+@media (min-width: 1425px) {
+    .error-text-container p {
+        line-height: 3.5vw;
+    }
+}
+
+@media (max-width: 991px) {
+    .error-text-container p {
+        margin: -40px auto;
+        font-size: 2em;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    .image-text-container .column {
+        height: 50%;
+    }
+
+    .error-image-container {
+        height: calc(50vh - 40px);
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .error-image-container img {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 375px) {
+    .error-image-container img {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CAT CSS */
+/* .error-container {
+    background-color: #343a40;
+    height: calc(100vh - 29px);
+    margin-top: 40px;
+    color: white;
+    overflow: auto;
+    text-align: center;
+}
+
+.error-container img {
+    max-height: 600px;
+    margin: 0 auto;
+}
+
+.error-container h1 {
+    font-family: "Knewave";
+    letter-spacing: 60px;
+    font-size: 14vh;
+    margin-left: 25px;
+    margin-top: -200px;
+    color: #c0eff4;
+}
+
+.error-text-container p {
+    font-family: "Bungee Inline";
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    width: 60%;
+    color: #FA9E71;
+    margin: -50px auto;
+    padding-bottom: 20px;
+}
+
+@media (max-width: 375px) {
+    .error-container img {
+        max-height: 600px;
+        margin-left: -4%;
+    }
+}
+
+@media (max-width: 320px) {
+    .error-container img {
+        max-height: 500px;
+        margin-left: -4%;
+    }
+} */
+
+
+
+
+
+
+/* DUMPLING CSS */
+
+/* .error-container {
+    background-color: #343a40;
+    height: 100vh;
+    color: white;
+    overflow: auto;
+    text-align: center;
+    width: 100vw;
+}
+
+.error-image-container {
+    display: table-cell;
+    vertical-align: middle;
+    height: 75vh;
+    width: 100vw;
+}
+
+.error-image-container img {
+    max-height: 650px;
+}
+
+.error-image-container h1 {
+    font-family: "Knewave";
+    letter-spacing: 2px;
+    font-size: 30vh;
+    display: inline-flex;
+    margin-left: -50px;
+    margin-right: -25px;
+    color: #c0eff4;
+}
+
+.error-image-container p {
+    font-family: "Bungee Inline";
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 2.25em;
+    width: 60%;
+    margin: -200px auto;
+    color: #FA9E71;
+        text-shadow:
+    -1px -1px 0 #f8f9fa,
+    1px -1px 0 #f8f9fa,
+    -1px 1px 0 #f8f9fa,
+    1px 1px 0 #f8f9fa;
+}
+
+@media (max-width: 829px) {
+    .error-image-container img {
+        max-height: 350px;
+    }
+
+    .error-image-container h1 {
+        font-size: 15vh;
+        margin-left: -30px;
+        margin-right: -15px;
+    }
+    
+    .error-image-container p {
+        font-size: 1.5em;
+        width: 80%;
+        margin: -100px auto;
+    }
+
+    .error-image-container {
+        padding-top: 40px;
+    }
+} */

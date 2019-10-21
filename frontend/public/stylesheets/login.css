@@ -1,0 +1,116 @@
+/************** LOGIN NAVBAR ****************/
+
+a.navbar-brand {
+    font-weight: 300;
+}
+
+.nav-indicator:hover {
+    background-color: gray;
+}
+
+.navbar {
+    background: transparent;
+}
+
+/************** LOGIN FORM ****************/
+
+.login-form-container {
+    background-image: url("../images/guanajuato8.jpg");
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: none;
+    background-position: center; 
+    padding: 0;
+}
+
+.background-overlay {
+    height: 100vh;
+    background: rgba(52, 58, 64,0.9);
+    display: table-cell;
+    vertical-align: middle;
+    width: 100vw;
+}
+
+.login-form {
+    background-color: inherit;
+    width: 30%;
+    min-width: 250px;
+    margin: 0 auto;
+}
+
+.login-form label {
+    color: white;
+}
+
+.login-form .experience-input {
+    background-color: inherit;
+    color: white;
+    padding: 0;
+    border: none;
+    border-bottom: 2px solid white;
+    line-height: 35px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 300;
+    width: 100%;
+}
+
+.login-form .experience-input:active, .experience-input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.login-form .experience-input::placeholder {
+    color: white;
+    font-weight: 200;
+}
+
+.login-title {
+    color: white;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login-form .submit-row button {
+    background-color: #94d5d1;
+    border: none;
+    border-radius: 0;
+    width: 200px;
+    margin: 0;
+    height: 45px;
+    width: 92%;
+    padding: 0;
+    margin-top: 30px;
+    border: 2px solid #94d5d1;
+}
+
+.login-form .submit-row button:hover {
+    background-color: inherit;
+    border: none;
+    border-radius: 0;
+    width: 200px;
+    margin: 0;
+    height: 45px;
+    width: 92%;
+    padding: 0;
+    margin-top: 30px;
+    border: 2px solid #94d5d1;
+    color: white;
+}
+
+.login-form-container button.btn.create.submit {
+    padding: 0;
+    color: white;
+}
+
+.login-form-container div.col-lg-12.submit-row {
+    padding: 0;
+    text-align: center;
+}
+
+.login-form .submit-row button:focus {
+    outline: none;
+    box-shadow: none;
+}

@@ -1,0 +1,53 @@
+<% include ../partials/header %>
+<div class="container-fluid page-index">
+    <!-- Modal -->
+    <div class="modal delete-gallery-modal fade" id="deleteGalleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete the <%= page.pageName %> page?</p>
+                    <div class="row delete-gallery-button-row">
+                        <div class="col-xs-6">
+                            <form action="/<%= page.pageName %>?_method=DELETE" method="POST">
+                                <button class="yes-delete-button">YES</button>
+                            </form>
+                        </div>
+                        <div class="col-xs-6">
+                            <button class="no-delete-button" data-dismiss="modal">NO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+    <div class="row no-gutters">
+        <div class="col-lg-6">
+            <img class="page-image img-fluid" src="<%= page.image %>">
+        </div>
+        <div class="col-lg-6 title-content-div">
+            <h1 class="page-title no-gutters"><%= page.title %></h1>
+            <p class="page-content"><%= page.content %></p>
+        </div>
+    </div>
+    <div class=page-index-div>
+        <% if(currentUser) { %>
+        <nav class="navbar fixed-bottom navbar-light justify-content-center">
+            <form action="/<%= page.pageName %>/edit">
+                <button class="btn edit-delete edit-button"><i class="fas fa-pencil-alt"></i></button>
+            </form>
+            <form>
+                <button class="btn edit-delete remove-button" type="button" data-toggle="modal"
+                    data-target="#deleteGalleryModal"><i class="fas fa-trash-alt"></i></button>
+            </form>
+        </nav>
+        <% } else { %>
+        <% } %>
+    </div>
+</div>
+<% include ../partials/footer %>

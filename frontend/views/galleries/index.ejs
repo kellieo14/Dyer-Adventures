@@ -1,0 +1,62 @@
+<% include ../partials/header %>
+<div class="gallery-container">
+    <h1>Photos</h1>
+    <div class="item-grid">
+        <% galleries.sort().forEach(function(gallery){ %>
+        <!-- Modal -->
+        <div class="modal delete-gallery-modal fade" id="deleteModal<%= gallery._id %>" tabindex="-1" role="dialog"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete the <%= gallery.title %> gallery?</p>
+                        <div class="row delete-gallery-button-row">
+                            <div class="col-xs-6">
+                                <form action="/gallery/<%= gallery._id %>?_method=DELETE" method="POST">
+                                    <button class="yes-delete-button">YES</button>
+                                </form>
+                            </div>
+                            <div class="col-xs-6">
+                                <button class="no-delete-button" data-dismiss="modal">NO</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+
+        <div class="item">
+            <div class="item-image">
+                <img src="<%= gallery.cover %>" alt="" />
+            </div>
+            <div class="item-text">
+                <div class="item-text-wrapper">
+                    <p class="item-text-dek"><%= gallery.title %></p>
+                    <a class="item-text-2" href='/gallery/<%= gallery._id %>/view'>View Album</a>
+                    <% if(currentUser) { %>
+                    <div class="edit-delete-gallery">
+                        <div class="row">
+                            <div class="edit-gallery-div col-xl-6 col-xs-6">
+                                <button onClick="window.location.href='/gallery/<%= gallery._id %>/edit'">EDIT</button>
+                            </div>
+                            <div class="delete-gallery-div col-xl-6 col-xs-6">
+                                <button type="button" data-toggle="modal"
+                                    data-target="#deleteModal<%= gallery._id %>">DELETE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <% } else { %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+<% include ../partials/footer %>

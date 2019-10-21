@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dyer Adventures</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Bevan|Emblema+One|Knewave|Skranji:700|Syncopate:700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="body">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark ">
+        <a class="navbar-brand" href="/">DYER ADVENTURES</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <% pages.forEach(function(page) { %>
+                <li class="nav-item"><a class="nav-link"
+                    href="/<%= page.pageName.toLowerCase() %>"><%= page.pageName.charAt(0).toUpperCase() + page.pageName.slice(1).toLowerCase() %></a>
+                </li>
+                <% }); %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/news">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/gallery">Gallery</a>
+                </li>
+                <% if(!currentUser) { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <% } else { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid login-form-container">
+        <div class="background-overlay">
+            <div class="container">
+                <form action="/login" class="login-form" method="POST">
+                    <h1 class="login-title">LOGIN</h1>
+                    <input class="experience-input" type="text" name="username" placeholder="Username">
+
+                    <input class="experience-input" type="password" name="password" placeholder="Password">
+                    <div class="row">
+                        <div class="col-lg-12 submit-row">
+                            <button class="btn create submit">LOGIN</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <% include ./partials/footer %>

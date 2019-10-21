@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+<div class="container edit-new-page-form">
+    <h1>Edit <%= page.pageName.charAt(0).toUpperCase() + page.pageName.slice(1).toLowerCase() %> Page</h1>
+    <form class="new-form" action="/experience?_method=PUT" method="POST">
+        <label class="new-form-label">Page Name</label>
+        <input class="experience-input" type="text" name=page[pageName] value="<%= page.pageName %>">
+        <label class="new-form-label">Page Title</label>
+        <input class="experience-input" type="text" name=page[title] value="<%= page.title %>">
+        <label class="new-form-label">Page Content</label>
+        <textarea class="experience-input" rows="10" name=page[content]><%= page.content %></textarea>
+        <label class="new-form-label">Image</label>
+        <input class="experience-input" type="text" name=page[image] value="<%= page.image %>">
+        <br>
+        <button class="btn btn-primary submit">Save</button>
+    </form>
+</div>
+<% include ../partials/footer %>

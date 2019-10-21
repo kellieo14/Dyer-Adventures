@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+<div class="container-fluid new-gallery-form new-page-form">
+    <div class="arrow-right edit-back-arrow">
+        <div class="back-button-div">
+            <a class="back-button" href="/gallery"><i class="fas fa-arrow-left"></i></a>
+        </div>
+    </div>
+    <h1 class="new-page-title">Edit Gallery Item</h1>
+    <form class="new-form" action="/gallery/<%= gallery._id %>?_method=PUT" method="POST">
+        <input class="experience-input" type="text" name=gallery[cover] value="<%= gallery.cover %>"
+            placeholder="COVER PHOTO">
+        <input class="experience-input" type="text" name=gallery[albumId] value="<%= gallery.albumId %>"
+            placeholder="ALBUM LINK">
+        <input class="experience-input" type="text" name=gallery[title] value="<%= gallery.title %>"
+            placeholder="TITLE">
+        <input class="experience-input" type="text" name=gallery[description] value="<%= gallery.description %>"
+            placeholder="ALBUM DESCRIPTION">
+        <input class="experience-input" type="text" name=gallery[dates] value="<%= gallery.dates %>"
+            placeholder="TRAVEL DATES">
+        <div class="row">
+            <div class="col-lg-12 submit-row">
+                <button class="btn create submit">SAVE</button>
+            </div>
+        </div>
+    </form>
+</div>
+<% include ../partials/footer %>

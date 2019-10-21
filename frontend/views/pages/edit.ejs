@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+<div class="container-fluid edit-new-page-form">
+    <div class="arrow-right edit-back-arrow">
+        <div class="back-button-div">
+            <a class="back-button" href="/<%= page.pageName %>"><i class="fas fa-arrow-left"></i></a>
+        </div>
+    </div>
+    <h1 class="edit-page-title">Editing
+        "<%= page.pageName.charAt(0).toUpperCase() + page.pageName.slice(1).toLowerCase() %>" Page
+    </h1>
+    <form class="new-form" action="/<%= page.pageName %>?_method=PUT" method="POST">
+        <input class="experience-input" type="text" name=page[pageName] placeholder="ROUTE"
+            value="<%= page.pageName %>">
+        <input class="experience-input" type="text" name=page[title] placeholder="TITLE" value="<%= page.title %>">
+        <textarea class="experience-input" rows="10" placeholder="CONTENT"
+            name=page[content]><%= page.content %>
+        </textarea>
+        <input class="experience-input" type="text" placeholder="IMAGE URL" name=page[image] value="<%= page.image %>">
+        <br>
+        <div class="row">
+            <div class="col-lg-12 submit-row">
+                <button class="btn save-button submit">SAVE</button>
+            </div>
+        </div>
+    </form>
+</div>
+<% include ../partials/footer %>

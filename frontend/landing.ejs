@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dyer Adventures</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="/stylesheets/landing.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Bevan|Emblema+One|Knewave|Skranji:700|Syncopate:700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="body">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark ">
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class=" ml-auto navbar-nav">
+                <% pages.forEach(function(page) { %>
+                <li class="ml-auto nav-item">
+                    <a class="nav-link"
+                        href="/<%= page.pageName.toLowerCase() %>"><%= page.pageName.charAt(0).toUpperCase() + page.pageName.slice(1).toLowerCase() %>
+                    </a>
+                </li>
+                <% }); %>
+                <li class="ml-auto nav-item">
+                    <a class="nav-link" href="/blogs">Blog</a>
+                </li>
+                <li class="ml-auto nav-item">
+                    <a class="nav-link" href="/gallery">Gallery</a>
+                </li>
+                <% if(!currentUser) { %>
+                <li class="nav-item ml-auto">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <% } else { %>
+                <li class="nav-item ml-auto">
+                    <a class="nav-link" href="/admin">Admin</a>
+                </li>
+                <li class="nav-item ml-auto">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+    <div class="row no-gutters landing-div">
+        <div class="img-fluid col-lg-12">
+            <div class="landing-photo-1">
+                <div class='landing-quote'>
+                    <div class="quote-div">
+                        <h6>Life is short and the world is wide.</h6>
+                    </div>
+                    <div class="title-div">
+                        <h3>DYER ADVENTURES<span>
+                                <hr /></span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% include ./views/partials/footer %>

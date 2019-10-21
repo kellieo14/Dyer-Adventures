@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+
+<div class="container-fluid no-gutters new-blog-div">
+    <div class="arrow-right edit-back-arrow">
+        <div class="back-button-div">
+            <a class="back-button" href="/blogs/<%= post.id %>"><i class="fas fa-arrow-left"></i></a>
+        </div>
+    </div>
+    <h1>Editing "<%= post.title %>" Post</h1>
+    <form class="new-form" action="/blogs/<%= post._id %>?_method=PUT" method="POST">
+        <input class="experience-input" type="text" name=post[title] value="<%= post.title %>" required>
+        <div class="row">
+            <div class="col-sm-4 col-xs-4">
+                <input class="experience-input" type="text" name=post[month] value="<%= post.month %>" required
+                    placeholder="MONTH">
+            </div>
+            <div class="col-sm-4 col-xs-4">
+                <input class="experience-input" type="text" name=post[day] value="<%= post.day %>" required
+                    placeholder="DAY">
+            </div>
+            <div class="col-sm-4 col-xs-4">
+                <input class="experience-input" type="text" name=post[year] value="<%= post.year %>" required
+                    placeholder="YEAR">
+            </div>
+        </div>
+        <textarea required class="experience-input" rows="10" name=post[description]><%- post.description %></textarea>
+        <input class="experience-input" type="text" name=post[image] value="<%= post.image%>" required>
+        <input class="experience-input" type="text" name=post[caption] value="<%= post.caption %>" required>
+        <br>
+        <div class="row edit-submit-row">
+            <div class="col-lg-6 no-gutters save-button-row">
+                <button class="btn save-button submit">SAVE</button>
+            </div>
+            <div class="col-lg-6 no-gutters cancel-button-row">
+                <a class="btn cancel-button" href="/blogs">CANCEL</a>
+            </div>
+        </div>
+    </form>
+</div>
+<% include ../partials/footer %>
