@@ -14,8 +14,7 @@ router.get('/gallery', (req, res) => {
         if (err) {
             res.redirect('back');
         } else {
-            Gallery.find({}, async (error, foundGalleries) => {
-                // eslint-disable-next-line no-empty
+            Gallery.find({}).sort({ _id: -1 }).exec(async (error, foundGalleries) => {
                 if (error) {
                 } else {
                     res.render('../../frontend/views/galleries/index', { pages: foundPages, galleries: foundGalleries });
