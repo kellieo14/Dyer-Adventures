@@ -15,6 +15,7 @@ router.get('/gallery', (req, res) => {
             res.redirect('back');
         } else {
             Gallery.find({}).sort({ _id: -1 }).exec(async (error, foundGalleries) => {
+                // eslint-disable-next-line no-empty
                 if (error) {
                 } else {
                     res.render('../../frontend/views/galleries/index', { pages: foundPages, galleries: foundGalleries });
@@ -120,15 +121,22 @@ router.get('/gallery/:id/view', (req, res) => {
                     req.flash('error', 'Post not found.');
                     res.redirect('/gallery');
                 } else {
-                    const regex = /\["(https:\/\/lh3\.googleusercontent\.com\/[a-zA-Z0-9\-_]*)"/g;
+                    const regex = /\["(https:\/\/lh3\.googleusercontent\.com\/[a-zA-Z0-9\-_]*",[0-9]*,[0-9]*)/g;
                     const response = (await axios.get(`https://photos.app.goo.gl/${foundGallery.albumId}`)).data;
                     const links = [];
                     let match;
                     // eslint-disable-next-line no-cond-assign
                     while (match = regex.exec(response)) {
-                        links.push(match[1]);
+                        const imageInfo = match[1].split(',');
+                        const imageUrl = imageInfo[0].replace('"', '');
+                        let width = +imageInfo[1];
+                        width = Math.floor(width / 2);
+                        let height = +imageInfo[2];
+                        height = Math.floor(height / 2);
+                        const imageLink = `${imageUrl}=w${width}-h${height}-no`;
+                        links.push(imageLink);
                     }
-                    // Removes duplicate photo
+                    // Removes album cover photo
                     links.pop();
                     res.render('../../frontend/views/galleries/show', { gallery: foundGallery, pages: foundPages, imageUrls: links });
                 }

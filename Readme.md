@@ -3,6 +3,8 @@ A simple website for sharing photo albums and blog posts.
 
 This project was created from a desire to have a space for my husband and I to share our travel photos and stories with our families while we are on the road. The application links images from a user's Google Photos account, making album creation simple and database storage realtively small.
 
+View the live version [here](http://www.dyeradventures.com)
+
 ## Features
 * You can create, edit and delete photo galleries and blogs.
 * You can create, edit and delete pages.

@@ -19,7 +19,13 @@ const pageRoutes = require('./routes/pages');
 
 const port = 8080;
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI,
+    {
+        useNewUrlParser: true,
+        reconnectTries: 100,
+        reconnectInterval: 1000,
+
+    })
     .then(() => console.log('Database connected successfully'))
     .catch((err) => console.log(err));
 mongoose.Promise = global.Promise;
