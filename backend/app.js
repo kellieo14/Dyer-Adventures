@@ -24,6 +24,8 @@ mongoose.connect(process.env.MONGODB_URI,
         useNewUrlParser: true,
         reconnectTries: 100,
         reconnectInterval: 1000,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
 
     })
     .then(() => console.log('Database connected successfully'))

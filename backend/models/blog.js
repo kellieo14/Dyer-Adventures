@@ -11,6 +11,7 @@ const blogSchema = new mongoose.Schema({
     description: String,
     image: String,
     caption: String,
+    author: String,
 });
 
 module.exports = mongoose.model('Post', blogSchema);

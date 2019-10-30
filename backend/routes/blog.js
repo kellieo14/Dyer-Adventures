@@ -14,7 +14,8 @@ router.get('/', (req, res) => {
             req.flash('error', err.message);
             res.redirect('/');
         } else {
-            Post.find({}, (error, allPosts) => {
+            Post.find({}).sort({ _id: -1 }).exec(async (error, allPosts) => {
+                // eslint-disable-next-line no-empty
                 if (error) {
                 } else {
                     res.render('../../frontend/views/blogs/index', { posts: allPosts, currentUser: req.user, pages: foundPages });
@@ -43,11 +44,11 @@ router.get('/new', middleware.isLoggedIn, (req, res) => {
  */
 router.post('/', middleware.isLoggedIn, (req, res) => {
     const {
-        title, day, month, year, description, image, caption,
+        title, day, month, year, description, image, caption, author,
     } = req.body;
 
     const newPost = {
-        title, day, month, year, description, caption, image,
+        title, day, month, year, description, caption, image, author,
     };
     Post.create(newPost, (err) => {
         if (err) {
